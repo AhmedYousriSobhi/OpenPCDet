@@ -97,10 +97,11 @@ def main():
             data_dict = demo_dataset.collate_batch([data_dict])
             load_data_to_gpu(data_dict)
             pred_dicts, _ = model.forward(data_dict)
-            with open('/content/drive/MyDrive/bv/data_dict'+str(idx)+'.pickle', 'wb') as handle:
+            with open('./bv/data_dict'+str(idx)+'.pickle', 'wb') as handle:
                 pickle.dump(data_dict, handle)
-            with open('/content/drive/MyDrive/bv/pred_dicts'+str(idx)+'.pickle', 'wb') as handle:
+            with open('./bv/pred_dicts'+str(idx)+'.pickle', 'wb') as handle:
                 pickle.dump(pred_dicts, handle)
+            #/content/drive/MyDrive
             #V.draw_scenes(
             #    points=data_dict['points'][:, 1:], ref_boxes=pred_dicts[0]['pred_boxes'],
             #    ref_scores=pred_dicts[0]['pred_scores'], ref_labels=pred_dicts[0]['pred_labels']
